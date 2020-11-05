@@ -1,0 +1,54 @@
+<h3>Pedidos</h3>
+<button mat-raised-button color="primary" [routerLink]="'/pedidos/crear-pedidos/new'" routerLinkActive="active">Cargar Nuevo Pedido</button>
+
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8"  >
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="nombreCliente">
+      <mat-header-cell *matHeaderCellDef>Nombre cliente</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nombreCliente | titlecase}} </mat-cell>
+    </ng-container>
+  
+    <!-- apellido Column -->
+    <ng-container matColumnDef="direccionCliente">
+      <mat-header-cell *matHeaderCellDef>direccion</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.direccionCliente}} </mat-cell>
+    </ng-container>
+  
+    <!-- edad Column -->
+    <ng-container matColumnDef="pedidoCliente">
+      <mat-header-cell *matHeaderCellDef>Pedido</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.pedidoCliente}} </mat-cell>
+    </ng-container>
+
+    <!-- materia Column -->
+    <ng-container matColumnDef="fechaEntrega">
+      <mat-header-cell *matHeaderCellDef>Fecha</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.fechaEntrega}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="editar">
+      <mat-header-cell *matHeaderCellDef>Editar</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-mini-fab color="link" (click)="editar(element._id)" >
+          <mat-icon>create</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="borrar">
+        <mat-header-cell *matHeaderCellDef>Borrar</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-mini-fab color="warn" (click)="borrar(element._id)" >
+            <mat-icon>clear</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns; "  ></mat-row>
+  </mat-table>
+
+ 
+  <router-outlet></router-outlet>

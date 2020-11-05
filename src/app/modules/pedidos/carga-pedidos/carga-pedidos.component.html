@@ -1,0 +1,29 @@
+<form [formGroup]="pedidosForm" (ngSubmit)=submit()>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre Cliente</mat-label>
+        <input matInput placeholder="nombre Cliente" type="text" formControlName="nombreCliente" >
+    </mat-form-field>
+<br>
+    <mat-form-field appearance="outline">
+        <mat-label>Direccion</mat-label>
+        <input matInput placeholder="direccion" type="text" formControlName="direccionCliente">
+    </mat-form-field>
+<br>
+    <mat-form-field appearance="outline">
+        <mat-label>Pedido</mat-label>
+        <input matInput placeholder="pedido" type="text" formControlName="pedidoCliente">
+    </mat-form-field>
+<br>
+    <mat-form-field appearance="outline">
+        <mat-label>fecha Entrega</mat-label>
+        <input matInput placeholder="fecha Entrega" type="date" formControlName="fechaEntrega">
+    </mat-form-field>  
+<br>
+  <div>
+    <button mat-raised-button color="primary" >Guardar</button>
+ </div>  
+ 
+ </form>
+
+
